@@ -117,3 +117,31 @@ extra="VDD VSS"
 Save the file
 
 This way you shoudld have a schematic and a corresponding symbol of a `nand2_1` cell ready to be instantiated. 
+
+## Adding the subcircuit to a testbench
+
+In order not to create a test bench from scratch we will reuse a transient analysis framework provided in th PDK. In `xschem` open the file `IHP_testcases.sch` and select `tran_logic_nand` block. Save the file in the location you have a write access as `tb_nand2_1.sch`
+
+<img width="505" height="381" alt="image" src="https://github.com/user-attachments/assets/4f396adf-4fb2-43f7-ab7a-c4df9a47a625" />
+
+Remove all the circuit elements leaving only the voltage sources. 
+Add also another voltage source by copying the one named `Vdd` (use `c` key binding). 
+
+Using `lab_pin.sym` element name the wires as follows:
+
+<img width="396" height="388" alt="image" src="https://github.com/user-attachments/assets/d34f255b-2398-4366-a360-7f2b5addab71" />
+
+Insert your symbol `nand2_1.sym` pointing out to the location where you save it.
+Add a wire and label it to `out`. Wire the rest of the connections to A and B respectively. 
+Save the circuit. 
+
+<img width="936" height="602" alt="image" src="https://github.com/user-attachments/assets/4153cdda-625c-4210-a6e2-d9403632c319" />
+
+Go to Simulate menu and mark two options: `Show netlist after netlist commadn`, `Use simulation dir in schematic dir`
+
+Now you can use Netlist and Simulate menu items to Netlist the circuit and run the simulation. 
+After the simulation finishes you can update the waveforms clicking on the green arrow while pressign `Ctrl`
+
+
+
+
